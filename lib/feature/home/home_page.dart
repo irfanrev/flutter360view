@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter360view/feature/videoview/video_page.dart';
+import 'package:get/get.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -8,25 +10,52 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Image View 360'),
+        title: const Text('Image View 360'),
       ),
-      body: Column(
+      body: ListView(
         children: [
           Container(
-            width: double.infinity,
-            height: 300,
-            color: Colors.grey[200],
-          ),
-          const SizedBox(
-            height: 25,
-          ),
-          const Text(
-            'Testing projects',
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
+            margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+            child: Column(
+              children: const [
+                ListTile(
+                  title: Text(
+                    'Image View 360',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  subtitle: Text('Sample flutter 360 view using image'),
+                ),
+                Divider(
+                  height: 2,
+                ),
+              ],
             ),
-            textAlign: TextAlign.center,
+          ),
+          InkWell(
+            onTap: () => Get.to(const VideoPage()),
+            child: Container(
+              margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+              child: Column(
+                children: const [
+                  ListTile(
+                    title: Text(
+                      'Video View 360',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    subtitle: Text('Sample flutter 360 view using base url video'),
+                  ),
+                  Divider(
+                    height: 2,
+                  ),
+                ],
+              ),
+            ),
           ),
         ],
       ),
